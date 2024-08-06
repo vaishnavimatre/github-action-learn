@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: print hellow
         run: echo "hello world !!"
+
+      - name: print chalo
+        run: echo "chalo world !!"
