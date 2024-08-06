@@ -4,7 +4,10 @@ name: Learn basic of GitHub Action
 on:
   push:
     branches:
-      -  master
+      -  main
+
+env: 
+    JDK_VERSION: "openjdk11-jdk"
 jobs:
   print-os-release:
     runs-on: ubuntu-latest
