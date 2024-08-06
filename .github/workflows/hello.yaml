@@ -1,0 +1,14 @@
+name: Learn basic of GitHub Action
+
+on:
+  push:
+    branches:
+      -  main
+
+jobs:
+  helloworld:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print hellow
+        run: echo "hello world !!"
