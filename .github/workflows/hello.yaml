@@ -1,16 +1,26 @@
-name: Learn basic of GitHub Action
+name: Learn basics of GitHub Actions
 
 on:
   push:
     branches:
-      -  main
+      - main
 
 jobs:
   helloworld:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print hellow
+      - name: print hello
+        run: echo "hello world !!"
+
+      - name: print chalo
+        run: echo "chalo world !!"
+
+  chaloworld:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print hello
         run: echo "hello world !!"
 
       - name: print chalo
