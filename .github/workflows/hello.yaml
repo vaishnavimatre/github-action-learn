@@ -2,31 +2,33 @@ name: Learn basic of GitHub Action
 on:
   push:
     branches:
-      -  main
-
+      - main
 
 env: 
-    JDK_VERSION: "openjdk11-jdk"
+  JDK_VERSION: "openjdk11-jdk"
+
 jobs:
   install-java:
     runs-on: ubuntu-latest
     container:
       image: alpine:latest
     steps:
-      - name: install java
+      - name: Install Java
         run: |
-              apk add --no-cache openjdk11-jdk
-              java --version
-              echo "MAVEN_VERSION=1234" >> $GITHUB_ENV
-              
-              -name: print maven version
-               run: echo $MAVEN_VERSION
-              
+          apk add --no-cache openjdk11-jdk
+          java --version
+          echo "MAVEN_VERSION=1234" >> $GITHUB_ENV
+          
+  print-maven-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Maven Version
+        run: echo $MAVEN_VERSION
+
   print-env:
-     runs-on: ubuntu-latest
-     container:
-      image:apline:latest
-     steps:
-      - name: print environment variable
-        run: echo JDK_VERSION
-     
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+      - name: Print Environment Variable
+        run: echo $JDK_VERSION
