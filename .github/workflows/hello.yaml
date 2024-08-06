@@ -1,29 +1,25 @@
-name: Learn basics of GitHub Actions
+name: Learn basic of GitHub Action
+
 
 on:
   push:
     branches:
-      - main
-
+      -  master
 jobs:
-  helloworld:
+  print-os-release:
     runs-on: ubuntu-latest
+    steps:
+      - name: print os-release
+        run: cat /etc/os-release
+        
+  install-java:
+    runs-on: ubuntu-latest
+    needs: print-os-release
     container:
       image: alpine:latest
-      
     steps:
-      - name: print hello
-        run: echo "hello world !!"
-
-      - name: print chalo
-        run: echo "chalo world !!"
-
-  chaloworld:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: print hello
-        run: echo  cat /etc/os-release
-
-      - name: print chalo
-        run: echo "chalo world !!"
+      - name: install java
+        run: |
+              apk add --no-cache openjdk11-jdk
+              java --version
+     
