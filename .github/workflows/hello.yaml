@@ -25,4 +25,12 @@ jobs:
         run: |
               apk add --no-cache openjdk11-jdk
               java --version
+
+  print-env:
+     runs-on: ubuntu-latest
+     container:
+      image:apline:latest
+     steps:
+      - name: print environment variable
+        run: echo JDK_VERSION
      
